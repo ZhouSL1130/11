@@ -212,47 +212,62 @@
     </div>
 
     <script>
-        // 播放音乐功能
+        // --- 核心配置 ---
         const playBtn = document.getElementById('playBtn');
         const birthdayMusic = document.getElementById('birthdayMusic');
-        let isPlaying = false; // 初始状态设为 false，由加载事件决定
-        
-        // 尝试自动播放逻辑
+        let isPlaying = false; 
+
+        // --- 1. 尝试自动播放 (针对部分允许的旧设备) ---
         window.addEventListener('load', function() {
-            // 尝试播放
-            const playPromise = birthdayMusic.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                    // 自动播放成功
-                    playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
-                    isPlaying = true;
-                    console.log("自动播放成功");
-                })
-                .catch(error => {
-                    // 自动播放被浏览器拦截
-                    playBtn.innerHTML = '<i class="fas fa-play"></i> 播放音乐';
-                    isPlaying = false;
-                    console.log("自动播放被拦截，需要手动点击");
-                });
-            }
+            birthdayMusic.play().then(() => {
+                // 如果运气好自动播放成功了
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
+            }).catch(error => {
+                // 如果被拦截了（绝大多数情况），什么都不做，等待用户交互
+                console.log("自动播放被拦截，等待用户点击...");
+            });
         });
 
-        // 按钮点击控制
-        playBtn.addEventListener('click', function() {
-            if (!isPlaying) {
-                birthdayMusic.play();
-                playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
-                isPlaying = true;
-            } else {
+        // --- 2. “隐形启动”黑科技 (重点修复) ---
+        // 只要用户点一下屏幕任何地方，或者滑动一下，就立刻触发播放
+        function startMusicOnInteraction() {
+            if (birthdayMusic.paused) {
+                birthdayMusic.play().then(() => {
+                    isPlaying = true;
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
+                    // 音乐启动后，移除这些监听，避免重复触发
+                    document.removeEventListener('click', startMusicOnInteraction);
+                    document.removeEventListener('touchstart', startMusicOnInteraction);
+                    document.removeEventListener('scroll', startMusicOnInteraction);
+                }).catch(e => console.log("播放失败", e));
+            }
+        }
+
+        // 监听各种用户操作（点击、触摸、滚动）
+        document.addEventListener('click', startMusicOnInteraction);
+        document.addEventListener('touchstart', startMusicOnInteraction);
+        document.addEventListener('scroll', startMusicOnInteraction);
+
+        // --- 3. 按钮手动控制功能 ---
+        playBtn.addEventListener('click', function(e) {
+            // 阻止冒泡，避免触发上面的隐形启动
+            e.stopPropagation(); 
+            
+            if (isPlaying) {
                 birthdayMusic.pause();
                 playBtn.innerHTML = '<i class="fas fa-play"></i> 播放音乐';
                 isPlaying = false;
+            } else {
+                birthdayMusic.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
+                isPlaying = true;
             }
         });
         
-        // 随机改变小心心位置
+        // --- 4. 装饰效果：随机爱心 & 日期 ---
         document.addEventListener('DOMContentLoaded', function() {
+            // 随机爱心位置
             const hearts = document.querySelectorAll('.heart');
             hearts.forEach(heart => {
                 const randomX = Math.random() * 90 + 5;
@@ -261,21 +276,22 @@
                 heart.style.top = `${randomY}%`;
             });
             
-            // 注意：此处已移除了自动设置今天的JS代码，因为HTML中已硬编码为1月22日
+            // 日期已在HTML中固定，此处无需JS设置
         });
         
-        // 点击照片切换
+        // --- 5. 照片切换功能 ---
         const photo = document.getElementById('mainPhoto');
         const photoUrls = [
             'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp',
-            'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp',
-            'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp'
+            // 可以在这里加更多的图片链接
         ];
         let currentPhotoIndex = 0;
         
         photo.addEventListener('click', function() {
-            currentPhotoIndex = (currentPhotoIndex + 1) % photoUrls.length;
-            photo.src = photoUrls[currentPhotoIndex];
+            if(photoUrls.length > 1) {
+                currentPhotoIndex = (currentPhotoIndex + 1) % photoUrls.length;
+                photo.src = photoUrls[currentPhotoIndex];
+            }
         });
     </script>
 </body>
