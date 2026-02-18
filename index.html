@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -7,12 +6,8 @@
     <title>给最爱的章子璇的生日信 💌</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* CSS样式保持不变 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
@@ -24,7 +19,6 @@
             justify-content: center;
             align-items: center;
         }
-        
         .container {
             max-width: 800px;
             width: 100%;
@@ -36,16 +30,12 @@
             position: relative;
             border: 1px solid #ffd6d6;
         }
-        
-        /* 装饰元素 */
         .heart {
             position: absolute;
             color: #ff6b81;
             font-size: 20px;
             opacity: 0.6;
         }
-        
-        /* 顶部标题区 */
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -53,22 +43,18 @@
             border-bottom: 2px dashed #ffb8b8;
             position: relative;
         }
-        
         .title {
             font-size: 2.8rem;
             color: #ff6b81;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
         .subtitle {
             font-size: 1.2rem;
             color: #ff8fa3;
             font-weight: 300;
             letter-spacing: 3px;
         }
-        
-        /* 信的内容区 */
         .letter-content {
             padding: 20px;
             font-size: 1.15rem;
@@ -79,19 +65,16 @@
             margin-bottom: 40px;
             position: relative;
         }
-        
         .salutation {
             font-size: 1.4rem;
             color: #ff6b81;
             margin-bottom: 25px;
             font-weight: bold;
         }
-        
         .message {
             margin-bottom: 20px;
             text-indent: 2em;
         }
-        
         .signature {
             text-align: right;
             margin-top: 40px;
@@ -99,13 +82,10 @@
             color: #ff6b81;
             font-family: 'Cedarville Cursive', cursive;
         }
-        
-        /* 照片展示区 */
         .photo-section {
             text-align: center;
             margin: 40px 0;
         }
-        
         .photo-frame {
             display: inline-block;
             border-radius: 15px;
@@ -113,7 +93,6 @@
             background: linear-gradient(45deg, #ff9a9e, #fad0c4);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
         .photo {
             width: 300px;
             height: 300px;
@@ -121,25 +100,18 @@
             border-radius: 10px;
             border: 5px solid white;
         }
-        
         .photo-caption {
             margin-top: 15px;
             font-style: italic;
             color: #ff8fa3;
         }
-        
-        /* 底部音乐和祝福 */
         .footer {
             text-align: center;
             margin-top: 50px;
             padding-top: 30px;
             border-top: 2px dashed #ffb8b8;
         }
-        
-        .music-player {
-            margin: 20px 0;
-        }
-        
+        .music-player { margin: 20px 0; }
         .play-btn {
             background-color: #ff6b81;
             color: white;
@@ -153,13 +125,11 @@
             gap: 10px;
             transition: all 0.3s;
         }
-        
         .play-btn:hover {
             background-color: #ff4757;
             transform: translateY(-3px);
             box-shadow: 0 7px 15px rgba(255, 107, 129, 0.4);
         }
-        
         .birthday-wish {
             font-size: 1.5rem;
             color: #ff6b81;
@@ -167,61 +137,35 @@
             font-weight: bold;
             animation: pulse 2s infinite;
         }
-        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        
-        /* 响应式设计 */
         @media (max-width: 768px) {
-            .container {
-                padding: 25px;
-            }
-            
-            .title {
-                font-size: 2.2rem;
-            }
-            
-            .photo {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .letter-content {
-                padding: 15px;
-                font-size: 1.05rem;
-            }
+            .container { padding: 25px; }
+            .title { font-size: 2.2rem; }
+            .photo { width: 250px; height: 250px; }
+            .letter-content { padding: 15px; font-size: 1.05rem; }
         }
-        
         @media (max-width: 480px) {
-            .title {
-                font-size: 1.8rem;
-            }
-            
-            .photo {
-                width: 200px;
-                height: 200px;
-            }
+            .title { font-size: 1.8rem; }
+            .photo { width: 200px; height: 200px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 装饰小心心 -->
         <div class="heart" style="top: 30px; left: 30px;"><i class="fas fa-heart"></i></div>
         <div class="heart" style="top: 50px; right: 50px;"><i class="fas fa-heart"></i></div>
         <div class="heart" style="bottom: 100px; left: 40px;"><i class="fas fa-heart"></i></div>
         <div class="heart" style="bottom: 80px; right: 60px;"><i class="fas fa-heart"></i></div>
         
-        <!-- 标题区 -->
         <div class="header">
             <h1 class="title">生日快乐，章子璇大王 🎂</h1>
             <div class="subtitle">一封写给你的专属情书</div>
         </div>
         
-        <!-- 照片区 -->
         <div class="photo-section">
             <div class="photo-frame">
                 <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp" 
@@ -230,7 +174,6 @@
             <p class="photo-caption">与你在一起的每一刻都值得珍藏 ❤️</p>
         </div>
         
-        <!-- 信的内容区 -->
         <div class="letter-content">
             <div class="salutation">亲爱的 章子璇大王<span id="namePlaceholder"></span>：</div>
             
@@ -251,15 +194,13 @@
             </div>
         </div>
         
-        <!-- 底部音乐和祝福 -->
         <div class="footer">
             <div class="music-player">
                 <p>点击播放，这是为你准备的生日歌 🎵</p>
                 <button class="play-btn" id="playBtn">
                     <i class="fas fa-play"></i> 播放音乐
                 </button>
-                <audio id="birthdayMusic" loop>
-                    <!-- 替换成你喜欢的音乐链接 -->
+                <audio id="birthdayMusic" loop autoplay>
                     <source src="https://image2url.com/r2/default/audio/1771425925192-84d70b87-aa0e-4e9a-bd29-42acdd2bdf0b.mp3" type="audio/mpeg">
                 </audio>
             </div>
@@ -274,21 +215,43 @@
         // 播放音乐功能
         const playBtn = document.getElementById('playBtn');
         const birthdayMusic = document.getElementById('birthdayMusic');
-        let isPlaying = true;
+        let isPlaying = false; // 初始状态设为 false，由加载事件决定
         
+        // 尝试自动播放逻辑
+        window.addEventListener('load', function() {
+            // 尝试播放
+            const playPromise = birthdayMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // 自动播放成功
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
+                    isPlaying = true;
+                    console.log("自动播放成功");
+                })
+                .catch(error => {
+                    // 自动播放被浏览器拦截
+                    playBtn.innerHTML = '<i class="fas fa-play"></i> 播放音乐';
+                    isPlaying = false;
+                    console.log("自动播放被拦截，需要手动点击");
+                });
+            }
+        });
+
+        // 按钮点击控制
         playBtn.addEventListener('click', function() {
             if (!isPlaying) {
                 birthdayMusic.play();
-                playBtn.innerHTML = '<i class="fas fa-pause"></i> 播放音乐';
-                isPlaying = false;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
+                isPlaying = true;
             } else {
                 birthdayMusic.pause();
-                playBtn.innerHTML = '<i class="fas fa-play"></i> 暂停音乐';
-                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-play"></i> 播放音乐';
+                isPlaying = false;
             }
         });
         
-        // 随机改变小心心位置（增加互动感）
+        // 随机改变小心心位置
         document.addEventListener('DOMContentLoaded', function() {
             const hearts = document.querySelectorAll('.heart');
             hearts.forEach(heart => {
@@ -298,16 +261,13 @@
                 heart.style.top = `${randomY}%`;
             });
             
-            // 自动设置日期
-            const today = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('currentDate').textContent = today.toLocaleDateString('zh-CN', options);
+            // 注意：此处已移除了自动设置今天的JS代码，因为HTML中已硬编码为1月22日
         });
         
-        // 点击照片可以切换（示例功能）
+        // 点击照片切换
         const photo = document.getElementById('mainPhoto');
         const photoUrls = [
-            'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp"',
+            'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp',
             'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp',
             'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp'
         ];
