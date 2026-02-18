@@ -246,8 +246,8 @@
             
             <div class="signature">
                 成年快乐，未来可期。<br>
-                <span id="yourName">lss</span><br>
-                <span id="currentDate">[20260122]</span>
+                <span id="yourName">lss </span><br>
+                <span id="currentDate">2026年1月22日</span>
             </div>
         </div>
         
@@ -274,17 +274,17 @@
         // 播放音乐功能
         const playBtn = document.getElementById('playBtn');
         const birthdayMusic = document.getElementById('birthdayMusic');
-        let isPlaying = false;
+        let isPlaying = true;
         
         playBtn.addEventListener('click', function() {
             if (!isPlaying) {
                 birthdayMusic.play();
-                playBtn.innerHTML = '<i class="fas fa-pause"></i> 暂停音乐';
-                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i> 播放音乐';
+                isPlaying = false;
             } else {
                 birthdayMusic.pause();
-                playBtn.innerHTML = '<i class="fas fa-play"></i> 播放音乐';
-                isPlaying = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i> 暂停音乐';
+                isPlaying = true;
             }
         });
         
@@ -307,7 +307,7 @@
         // 点击照片可以切换（示例功能）
         const photo = document.getElementById('mainPhoto');
         const photoUrls = [
-            'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp',
+            'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp"',
             'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp',
             'https://youke.xn--y7xa690gmna.cn/s1/2026/02/18/6995c7a674214.webp'
         ];
@@ -320,11 +320,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
